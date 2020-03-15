@@ -1,0 +1,29 @@
+{
+	"Device_1": {
+		"Name": "Motion Tracker",
+		"Attributes": {
+			"CPU": ["Cortex A3"],
+			"RAM": [4096,8192],
+			"Height": [10,30],
+			"Length": [20,40],
+			"Width": [30,50],
+			"Weight": [50,60],
+			"Sensors": ["Gyroscope", "Accelerometer"],
+			"Units": ["cm"]
+		}
+	},
+
+  "Device_2": {
+		"Name": "Smart Inhaler",
+		"Attributes": {
+			"CPU": ["Cortex A4"],
+			"RAM": [4096,8192],
+			"Height": [10,30],
+			"Length": [20,40],
+			"Width": [30,50],
+			"Weight": [50,60],
+			"Sensors": ["SPo2", "Accelerometer"],
+			"Units": ["mmHg"]
+    }
+  }
+}

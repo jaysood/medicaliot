@@ -1,0 +1,16 @@
+{
+  "CPU": [
+    "Cortex A3"
+  ],
+  "RAM": 4516,
+  "Height": 28,
+  "Length": 33,
+  "Width": 47,
+  "Weight": 50,
+  "Sensors": [
+    "yeet"
+  ],
+  "Units": [
+    "cm"
+  ]
+}
