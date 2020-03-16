@@ -27,19 +27,21 @@ def generate(dict, noKeys):
     # Choose random Device Type:
     random_index = random.randint(0,noKeys - 1)
     random_device = dict[list(dict.keys())[random_index]] #random.choice?()
-    random_dict = {}
+    random_dict = { "data":{}}
 
     # Generate random attributes:
     for key in random_device["Attributes"]:
-        random_dict[key] = randomValueFromDict(random_device["Attributes"][key])
+        random_dict["data"][key] = randomValueFromDict(random_device["Attributes"][key])
+
+    print(random_dict)
 
     with open('generated.json', 'w+') as filew:
         json.dump(random_dict, filew, indent = 2)
-        open into a dictionary containing a list of dictionarys
+
 
 def randomValueFromDict(generator):
     #not complete, weird sensor behaviour, try catch needed
-    outlist = ['yeet']
+    outlist = []
     if len(generator) == 1:
         return generator
     elif isinstance(generator[0],int):
@@ -48,6 +50,9 @@ def randomValueFromDict(generator):
         for i in range(0,random.randint(0,len(generator))):
             outlist.append(generator[i])
         return outlist
+    else:
+        print("Check IoMT.json file! Data possibly corrupt.")
+        sys.exit()
 
 
 def main():

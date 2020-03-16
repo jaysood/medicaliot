@@ -1,16 +1,18 @@
 {
-  "CPU": [
-    "Cortex A3"
-  ],
-  "RAM": 4516,
-  "Height": 28,
-  "Length": 33,
-  "Width": 47,
-  "Weight": 50,
-  "Sensors": [
-    "yeet"
-  ],
-  "Units": [
-    "cm"
-  ]
+  "data": {
+    "CPU": [
+      "Cortex A3"
+    ],
+    "RAM": 4641,
+    "Height": 16,
+    "Length": 24,
+    "Width": 40,
+    "Weight": 52,
+    "Sensors": [
+      "Gyroscope"
+    ],
+    "Units": [
+      "cm"
+    ]
+  }
 }
