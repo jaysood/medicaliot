@@ -20,21 +20,22 @@ def initialise_json():
         return [device_dict, len(device_dict.keys())]
 
 
-def generate(dict, noKeys):
+def generate(noRecordsToGenerate, dict, noKeys):
     # Picks a random device from the JSON data
     # Generates pseudorandom attribues dependant on device
-
-    # Choose random Device Type:
-    random_index = random.randint(0,noKeys - 1)
-    random_device = dict[list(dict.keys())[random_index]] #random.choice?()
-    random_dict = { "data":{}}
+    random_dict = {}
 
     # Generate random attributes:
-    for key in random_device["Attributes"]:
-        random_dict["data"][key] = randomValueFromDict(random_device["Attributes"][key])
+    for i in range(noRecordsToGenerate):
+        # Picks a random device to generate attributes:
+        sub_dict = {}
+        random_index = random.randint(0,noKeys - 1)
+        random_device = dict[list(dict.keys())[random_index]]
+        for key in random_device["Attributes"]:
+            sub_dict[key] =  randomValueFromDict(random_device["Attributes"][key])
+        random_dict["Device " + str(i)] = sub_dict
 
-    print(random_dict)
-
+    # Dumps to json file:
     with open('generated.json', 'w+') as filew:
         json.dump(random_dict, filew, indent = 2)
 
@@ -42,6 +43,7 @@ def generate(dict, noKeys):
 def randomValueFromDict(generator):
     #not complete, weird sensor behaviour, try catch needed
     outlist = []
+
     if len(generator) == 1:
         return generator
     elif isinstance(generator[0],int):
@@ -65,8 +67,7 @@ def main():
         sys.exit()
     print("Generating " + str(noRecords) + " entries...")
 
-    for i in range(noRecords):
-        generate(IoMT_Data, lenKeys)
+    generate(noRecords, IoMT_Data, lenKeys)
 
     print("Data generated!")
 
