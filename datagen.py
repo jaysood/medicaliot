@@ -1,5 +1,6 @@
 import math, random, sys, os, json
-
+# TODO - ram in incrments of 256 and also testing vs training mode.
+# also misc validation
 def initialise_tool():
     print("Warning this tool removes all previously generated data! Please save in a different directory if required!")
     decision = input("Proceed? (Y/N): ")
