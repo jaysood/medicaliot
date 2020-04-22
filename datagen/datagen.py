@@ -1,7 +1,9 @@
 import math, random, sys, os, json
-# TODO - ram in incrments of 256 and also testing vs training mode.
+trainingMode = False
+# TODO - ram in incrments of 256
 # also misc validation
 def initialise_tool():
+    global trainingMode
     print("Warning this tool removes all previously generated data! Please save in a different directory if required!")
     decision = input("Proceed? (Y/N): ")
     if ((decision == 'Y') or (decision == 'y')):
@@ -13,6 +15,19 @@ def initialise_tool():
     else:
         print("Goodbye!")
         sys.exit()
+
+    print("Do you want to generate testing or training data?")
+    mode = int(input("Enter:\n 1) Testing\n 2) Training (With Labels)\n"))
+
+    if mode == 1:
+        print("Program will generate test data with no labels\n")
+    elif mode == 2:
+        trainingMode = True
+        print("Program will generate training data with labels\n")
+    else:
+        print("Please select a valid option")
+        sys.exit()
+
 
 
 def initialise_json():
@@ -34,6 +49,8 @@ def generate(noRecordsToGenerate, dict, noKeys):
         random_device = dict[list(dict.keys())[random_index]]
         for key in random_device["Attributes"]:
             sub_dict[key] =  randomValueFromDict(random_device["Attributes"][key])
+        if trainingMode == True:
+            sub_dict["Name"] = str(random_device["Name"])
         random_dict["Device " + str(i)] = sub_dict
 
     # Dumps to json file:
