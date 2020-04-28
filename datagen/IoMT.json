@@ -1,155 +1,105 @@
 {
-	"Device_1": {
+	"Device_0": {
 		"Name": "Motion Tracker",
 		"Attributes": {
-			"CPU": ["Cortex A3"],
-			"RAM": [4096,8192],
-			"Height": [10,30],
-			"Length": [20,40],
-			"Width": [30,50],
-			"Weight": [50,60],
-			"Sensors": ["Gyroscope", "Accelerometer"],
-			"Units": ["cm"]
+			"CPU": ["Cortex M4"],
+			"Width": [30,40],
+			"Length": [35,57],
+			"Height": [9,15],
+			"Weight": [20,180],
+			"Sensors": ["3 Axis Accelerometer", "3 Axis Gyroscope", "Magnetometer"],
+			"Connectivity": ["Wi-Fi", "Bluetooth"]
 		}
 	},
 
-  "Device_2": {
+  "Device_1": {
 		"Name": "Smart Inhaler",
 		"Attributes": {
-			"CPU": ["Cortex M Series"],
-			"RAM": [4096,8192],
-			"Height": [10,30],
-			"Length": [20,40],
-			"Width": [30,50],
-			"Weight": [50,60],
-			"Sensors": ["SPo2", "Accelerometer"],
-			"Units": ["mmHg"]
+			"CPU": ["Qualcomm SoC"],
+			"Width": [10,30],
+			"Length": [42,45],
+			"Height": [63,70],
+			"Weight": [10,30],
+			"Sensors": ["Flow Sensor", "Accelerometer"],
+			"Connectivity": ["Bluetooth", "GPS"]
     }
   },
 
-	"Device_3": {
+	"Device_2": {
 		"Name": "Multifunction Wearable",
 		"Attributes": {
-			"CPU": ["Cortex A4"],
-			"RAM": [4096,8192],
-			"Height": [10,30],
-			"Length": [20,40],
-			"Width": [30,50],
-			"Weight": [50,60],
-			"Sensors": ["SPo2", "Accelerometer"],
-			"Units": ["mmHg"]
+			"CPU": ["Apple S Series", "Arm Cortex M4", "Qualcomm Snapdragon Wear"],
+			"Width": [10,45],
+			"Length": [20,38],
+			"Height": [30,11],
+			"Weight": [40,125],
+			"Sensors": ["Accelerometer", "Altimeter", "Gyroscope", "Heart Rate", "GPS", "Barometer", "Compass"],
+			"Connectivity": ["Bluetooth", "Wi-Fi", "Cellular"]
+		}
+	},
+
+	"Device_3": {
+		"Name": "Sleep Tracker",
+		"Attributes": {
+			"CPU": ["Unknown Embedded SoC"],
+			"Width": [637,780],
+			"Length": [65,190],
+			"Height": [2,5],
+			"Weight": [280,350],
+			"Sensors": ["Piezo Force", "Humidity", "Temperature", "Capacitive Touch"],
+			"Connectivity": ["Bluetooth", "Wi-Fi"]
 		}
 	},
 
 	"Device_4": {
-		"Name": "Sleep Tracker",
+		"Name": "Remote Patient Monitor",
 		"Attributes": {
-			"CPU": ["Cortex A4"],
-			"RAM": [4096,8192],
-			"Height": [10,30],
-			"Length": [20,40],
-			"Width": [30,50],
-			"Weight": [50,60],
-			"Sensors": ["SPo2", "Accelerometer"],
-			"Units": ["mmHg"]
+			"CPU": ["IOIO-OTG Microcontroller" , "Multiple Embedded SoC"],
+			"Width": [0,0],
+			"Length": [0,0],
+			"Height": [0,0],
+			"Weight": [0,0],
+			"Sensors": ["ECG", "Pulse Oximeter", "Glucometer", "Blood Pressure", "Temperature"],
+			"Connectivity": ["Bluetooth" , "Wi-Fi"]
 		}
 	},
 
 	"Device_5": {
-		"Name": "Blood Glucose Monitor",
+		"Name": "Artificial Pancreas/Insulin Pump",
 		"Attributes": {
-			"CPU": ["Cortex A4"],
-			"RAM": [4096,8192],
-			"Height": [10,30],
-			"Length": [20,40],
-			"Width": [30,50],
-			"Weight": [50,60],
-			"Sensors": ["SPo2", "Accelerometer"],
-			"Units": ["mmHg"]
+			"CPU": ["Cortex M3", "Unknown Embedded SoC"],
+			"Width": [51,86],
+			"Length": [33,96],
+			"Height": [13,25],
+			"Weight": [62,115],
+			"Sensors": ["Glucometer"],
+			"Connectivity": ["UHF/VHF Radio" , "Wi-Fi"]
 		}
 	},
 
-	"Device_6": {
-		"Name": "Remote Patient Monitor",
-		"Attributes": {
-			"CPU": ["Cortex A4"],
-			"RAM": [4096,8192],
-			"Height": [10,30],
-			"Length": [20,40],
-			"Width": [30,50],
-			"Weight": [50,60],
-			"Sensors": ["SPo2", "Accelerometer"],
-			"Units": ["mmHg"]
-		}
-	},
-
-	"Device_7": {
-		"Name": "Artificial Pancreas",
-		"Attributes": {
-			"CPU": ["Cortex A4"],
-			"RAM": [4096,8192],
-			"Height": [10,30],
-			"Length": [20,40],
-			"Width": [30,50],
-			"Weight": [50,60],
-			"Sensors": ["SPo2", "Accelerometer"],
-			"Units": ["mmHg"]
-		}
-	},
-
-	"Device_8": {
-		"Name": "Connected Contact Lens",
-		"Attributes": {
-			"CPU": ["Cortex A4"],
-			"RAM": [4096,8192],
-			"Height": [10,30],
-			"Length": [20,40],
-			"Width": [30,50],
-			"Weight": [50,60],
-			"Sensors": ["SPo2", "Accelerometer"],
-			"Units": ["mmHg"]
-		}
-	},
-
-	"Device_9": {
-		"Name": "Ingestible Sensor",
-		"Attributes": {
-			"CPU": ["Cortex A4"],
-			"RAM": [4096,8192],
-			"Height": [10,30],
-			"Length": [20,40],
-			"Width": [30,50],
-			"Weight": [50,60],
-			"Sensors": ["SPo2", "Accelerometer"],
-			"Units": ["mmHg"]
-	   }
-   },
-
- "Device_10": {
-	 "Name": "Catheter",
+ "Device_6": {
+	 "Name": "Smart Urinary Catheter",
 	 "Attributes": {
-		 "CPU": ["Cortex A4"],
-		 "RAM": [4096,8192],
-		 "Height": [10,30],
-		 "Length": [20,40],
-		 "Width": [30,50],
-		 "Weight": [50,60],
-		 "Sensors": ["SPo2", "Accelerometer"],
-		 "Units": ["mmHg"]
+		 "CPU": ["Unknown Embedded SoC"],
+		 "Width": [0,0],
+		 "Length": [0,0],
+		 "Height": [0,0],
+		 "Weight": [0,0],
+		 "Sensors": ["Flow Sensor", "Pressure Sensor"],
+		 "Connectivity": ["Wi-Fi", "Bluetooth"]
 	 }
  	},
 
-	"Device_10": {
-		"Name": "Mobile Computing Platform",
+	"Device_7": {
+		"Name": "Modular Mobile Computing Platform",
 		"Attributes": {
 			"CPU": ["Cortex-A72", "AT-Mega Series", "Cortex-A53"],
-			"RAM": [1024,4096],
-			"Height": [11,17],
+			"Width": [11,17],
 			"Length": [65,85],
-			"Width": [56,65],
+			"Height": [56,65],
 			"Weight": [29,45],
-			"Sensors": ["Wifi 2.4", "Wifi 5", "Bluetooth"],
-			"Units": [""]
+			"Sensors": ["Multiple - Modular"],
+			"Connectivity": ["Wi-fi", "Bluetooth"]
 		}
 	}
 
