@@ -51,6 +51,8 @@ def generate(noRecordsToGenerate, dict, noKeys):
             sub_dict[key] =  randomValueFromDict(random_device["Attributes"][key])
         if trainingMode == True:
             sub_dict["Name"] = str(random_device["Name"])
+        #Correcting CPU list:
+        sub_dict["CPU"] = cpuValueCorrector(sub_dict["CPU"])
         random_dict["Device " + str(i)] = sub_dict
 
     # Dumps to json file:
@@ -64,15 +66,28 @@ def randomValueFromDict(generator):
 
     if len(generator) == 1:
         return generator
-    elif isinstance(generator[0],int):
-        return random.randint(generator[0],generator[1])
-    elif isinstance(generator[0],str) and len(generator) > 1:
-        for i in range(0,random.randint(0,len(generator))):
-            outlist.append(generator[i])
+    elif isinstance(generator[0], int):
+        return random.randint(generator[0], generator[1])
+    elif isinstance(generator[0], str) and len(generator) > 1:
+        number_to_generate = random.randint(1,len(generator))
+        while number_to_generate > 0:
+            random_index = random.randint(0,len(generator) - 1)
+            data_to_append = generator[random_index]
+            if not(data_to_append in outlist):
+                outlist.append(data_to_append)
+            number_to_generate -= 1
         return outlist
     else:
         print("Check IoMT.json file! Data possibly corrupt.")
         sys.exit()
+
+def cpuValueCorrector(cpu_list):
+    #Checks if CPU list contains more than 1 CPU, deletes the end one if so
+    if len(cpu_list) > 1:
+        del cpu_list[len(cpu_list) - 1]
+        return cpu_list
+    else:
+        return cpu_list
 
 
 def main():
