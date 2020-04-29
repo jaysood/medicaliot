@@ -5,6 +5,13 @@ import numpy as np
 generatedDataFile = Path(r'/Users/jayrsood/Documents/3rd Year/medicaliot/medicaliot/datagen/generated.json')
 iomtDataFile = Path(r'/Users/jayrsood/Documents/3rd Year/medicaliot/medicaliot/datagen/IoMT.json')
 
+def getKeyFromValue(value, hashtable):
+    for key, potential_value in hashtable.items():
+        if value == potential_value:
+            return key
+    raise KeyError
+
+
 def populateHashtable(iomtdata):
     '''
     Converts string components of IoMT.json file into hashtable to be used in array
@@ -48,30 +55,43 @@ def populateHashtable(iomtdata):
     del sensor_hashtable[0]
     del connect_hashtable[0]
 
-def conversion(generated):
+    return name_hashtable, cpu_hashtable, sensor_hashtable, connect_hashtable
+
+def conversion(generated, name_hashtable, cpu_hashtable, sensor_hashtable, connect_hashtable):
     '''
     Converts generated.json file into numpy array for input to ML algorithms
     '''
-    #Opens given file and loads contents into dictionary.
+    device_array = [0,0,0,0,0,0,0,0]
+
+#Opening generated file:
     with open(generated, 'r') as f:
         convert_dict = json.load(f)
 
-    device_array = []
-
     for device in range(0, len(convert_dict)):
         current_device = 'Device ' + str(device)
-        device_array.append([
-        [convert_dict[current_device]["Width"]],
-        [convert_dict[current_device]["Length"]],
-        [convert_dict[current_device]["Height"]],
-        [convert_dict[current_device]["Weight"]],
-        ])
+
+        try:
+            device_array[0] = getKeyFromValue(convert_dict[current_device]["CPU"][0], cpu_hashtable)
+        except KeyError:
+            print("One or more key(s) not in hashtable.")
+
+    # for device in range(0, len(convert_dict)):
+    #     current_device = 'Device ' + str(device)
+    #     device_array.append([
+    #     [convert_dict[current_device]["Width"]],
+    #     [convert_dict[current_device]["Length"]],
+    #     [convert_dict[current_device]["Height"]],
+    #     [convert_dict[current_device]["Weight"]],
+    #     ])
 
     #Convert to numpy array
     numpy_device_array = np.asarray(device_array, dtype=np.float32)
 
-    #print(numpy_device_array)
+    print(numpy_device_array)
+    print(cpu_hashtable)
 
-#conversion(generatedDataFile)
 
-populateHashtable(iomtDataFile)
+
+
+nametable, cputable, sensortable, connectable = populateHashtable(iomtDataFile)
+conversion(generatedDataFile, nametable, cputable, sensortable, connectable)
