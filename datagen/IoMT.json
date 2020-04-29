@@ -99,7 +99,7 @@
 			"Height": [56,65],
 			"Weight": [29,45],
 			"Sensors": ["Multiple - Modular"],
-			"Connectivity": ["Wi-fi", "Bluetooth"]
+			"Connectivity": ["Wi-Fi", "Bluetooth"]
 		}
 	}
 
