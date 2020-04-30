@@ -2,6 +2,9 @@ from pathlib import Path
 import json
 import numpy as np
 
+GLOBAL_MAX_SENSOR = 7
+GLOBAL_MAX_CONNECT = 3
+
 generatedDataFile = Path(r'/Users/jayrsood/Documents/3rd Year/medicaliot/medicaliot/datagen/generated.json')
 iomtDataFile = Path(r'/Users/jayrsood/Documents/3rd Year/medicaliot/medicaliot/datagen/IoMT.json')
 
@@ -100,16 +103,52 @@ def conversion(generated, name_hashtable, cpu_hashtable, sensor_hashtable, conne
         except KeyError:
             print("Key not found in dictionary!")
 
-    converted_array = np.asarray(to_convert)
-    return converted_array
+    return to_convert
 
+def flattenListForML(list):
+    output_list = []
 
-def main():
+#Setup lists for incoming data, populate with 0's
+    for i in range(0, len(list)):
+        output_list.append([0,0,0,0,0])
+    #The +1 is for the CLASS at the end of list.
+    for entry in range(0, len(output_list)):
+        for j in range(0, (GLOBAL_MAX_SENSOR + GLOBAL_MAX_CONNECT + 1)):
+            output_list[entry].append(0)
+
+#Copies non string entries to new list
+    for record in range(0, len(list)):
+        delist = []
+        for list_item in range(0,5):
+            output_list[record][list_item] = list[record][list_item][0]
+
+        #Pulls all actual lists from record into delist
+        for element in range(5,len(list[record]) - 1):
+            delist.append(list[record][element])
+
+        #Transfers elements of delist to new ML friendly structure
+        if len(delist) != 0:
+            sensor_head_pointer = 5
+            connect_head_pointer = 12
+            for sensor_element in range(0, len(delist[0])):
+                output_list[record][sensor_head_pointer] = delist[0][sensor_element]
+                sensor_head_pointer += 1
+
+            for connect_element in range(0, len(delist[1])):
+                output_list[record][connect_head_pointer] = delist[1][connect_element]
+                connect_head_pointer += 1
+
+        #Transfers CLASS to new ML friendly structure
+        output_list[record][15] = list[record][7][0]
+
+    return output_list
+
+def convert():
 
     nametable, cputable, sensortable, connectable = populateHashtable(iomtDataFile)
-    output = conversion(generatedDataFile, nametable, cputable, sensortable, connectable)
+    to_flatten = conversion(generatedDataFile, nametable, cputable, sensortable, connectable)
+    converted_list = np.asarray(flattenListForML(to_flatten))
 
-    #Un-comment to print hashtables for reference!
     # for item in list(nametable.items()):
     #     print(item)
     # print("\n")
@@ -124,8 +163,5 @@ def main():
     # print("\n")
 
     print("Conversion complete.")
-    return output
 
-
-
-main()
+convert()

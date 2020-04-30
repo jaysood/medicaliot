@@ -3,81 +3,171 @@
     "CPU": [
       "Unknown Embedded SoC"
     ],
-    "Width": 690,
-    "Length": 99,
-    "Height": 5,
-    "Weight": 294,
+    "Width": 61,
+    "Length": 66,
+    "Height": 25,
+    "Weight": 73,
     "Sensors": [
-      "Temperature"
+      "Glucometer"
     ],
     "Connectivity": [
       "Wi-Fi"
     ],
-    "Name": "Sleep Tracker"
+    "Name": "Artificial Pancreas/Insulin Pump"
   },
   "Device 1": {
     "CPU": [
-      "Unknown Embedded SoC"
+      "IOIO-OTG Microcontroller"
     ],
-    "Width": 661,
-    "Length": 94,
-    "Height": 4,
-    "Weight": 305,
+    "Width": 0,
+    "Length": 0,
+    "Height": 0,
+    "Weight": 0,
     "Sensors": [
-      "Piezo Force",
-      "Temperature"
+      "Blood Pressure",
+      "Pulse Oximeter",
+      "Glucometer"
+    ],
+    "Connectivity": [
+      "Wi-Fi",
+      "Bluetooth"
+    ],
+    "Name": "Remote Patient Monitor"
+  },
+  "Device 2": {
+    "CPU": [
+      "Qualcomm SoC"
+    ],
+    "Width": 22,
+    "Length": 43,
+    "Height": 68,
+    "Weight": 19,
+    "Sensors": [
+      "Accelerometer"
     ],
     "Connectivity": [
       "Bluetooth"
     ],
-    "Name": "Sleep Tracker"
-  },
-  "Device 2": {
-    "CPU": [
-      "Unknown Embedded SoC"
-    ],
-    "Width": 0,
-    "Length": 0,
-    "Height": 0,
-    "Weight": 0,
-    "Sensors": [
-      "Pressure Sensor"
-    ],
-    "Connectivity": [
-      "Wi-Fi"
-    ],
-    "Name": "Smart Urinary Catheter"
+    "Name": "Smart Inhaler"
   },
   "Device 3": {
     "CPU": [
-      "Unknown Embedded SoC"
+      "Cortex-A72"
+    ],
+    "Width": 16,
+    "Length": 73,
+    "Height": 62,
+    "Weight": 31,
+    "Sensors": [
+      "Multiple - Modular"
+    ],
+    "Connectivity": [
+      "Wi-Fi"
+    ],
+    "Name": "Modular Mobile Computing Platform"
+  },
+  "Device 4": {
+    "CPU": [
+      "IOIO-OTG Microcontroller"
     ],
     "Width": 0,
     "Length": 0,
     "Height": 0,
     "Weight": 0,
     "Sensors": [
-      "Flow Sensor"
+      "ECG"
     ],
     "Connectivity": [
       "Wi-Fi"
     ],
-    "Name": "Smart Urinary Catheter"
+    "Name": "Remote Patient Monitor"
   },
-  "Device 4": {
+  "Device 5": {
+    "CPU": [
+      "IOIO-OTG Microcontroller"
+    ],
+    "Width": 0,
+    "Length": 0,
+    "Height": 0,
+    "Weight": 0,
+    "Sensors": [
+      "Pulse Oximeter",
+      "Glucometer"
+    ],
+    "Connectivity": [
+      "Wi-Fi",
+      "Bluetooth"
+    ],
+    "Name": "Remote Patient Monitor"
+  },
+  "Device 6": {
+    "CPU": [
+      "IOIO-OTG Microcontroller"
+    ],
+    "Width": 0,
+    "Length": 0,
+    "Height": 0,
+    "Weight": 0,
+    "Sensors": [
+      "Pulse Oximeter"
+    ],
+    "Connectivity": [
+      "Wi-Fi"
+    ],
+    "Name": "Remote Patient Monitor"
+  },
+  "Device 7": {
+    "CPU": [
+      "Apple S Series"
+    ],
+    "Width": 34,
+    "Length": 26,
+    "Height": 13,
+    "Weight": 116,
+    "Sensors": [
+      "Heart Rate",
+      "Accelerometer",
+      "GPS",
+      "Altimeter",
+      "Barometer"
+    ],
+    "Connectivity": [
+      "Cellular",
+      "Bluetooth"
+    ],
+    "Name": "Multifunction Wearable"
+  },
+  "Device 8": {
     "CPU": [
       "Cortex M4"
     ],
-    "Width": 37,
-    "Length": 43,
-    "Height": 9,
-    "Weight": 171,
+    "Width": 33,
+    "Length": 54,
+    "Height": 12,
+    "Weight": 52,
     "Sensors": [
-      "3 Axis Gyroscope"
+      "3 Axis Accelerometer"
     ],
     "Connectivity": [
       "Wi-Fi"
     ],
     "Name": "Motion Tracker"
+  },
+  "Device 9": {
+    "CPU": [
+      "Apple S Series"
+    ],
+    "Width": 32,
+    "Length": 35,
+    "Height": 11,
+    "Weight": 99,
+    "Sensors": [
+      "Accelerometer"
+    ],
+    "Connectivity": [
+      "Bluetooth",
+      "Cellular"
+    ],
+    "Name": "Multifunction Wearable"
   }
 }
