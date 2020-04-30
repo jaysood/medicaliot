@@ -163,5 +163,6 @@ def convert():
     # print("\n")
 
     print("Conversion complete.")
+    return converted_list
 
 convert()
