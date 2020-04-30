@@ -3,38 +3,52 @@
     "CPU": [
       "Unknown Embedded SoC"
     ],
-    "Width": 67,
-    "Length": 78,
-    "Height": 21,
-    "Weight": 62,
+    "Width": 690,
+    "Length": 99,
+    "Height": 5,
+    "Weight": 294,
     "Sensors": [
-      "Glucometer"
+      "Temperature"
     ],
     "Connectivity": [
       "Wi-Fi"
     ],
-    "Name": "Artificial Pancreas/Insulin Pump"
+    "Name": "Sleep Tracker"
   },
   "Device 1": {
     "CPU": [
-      "Apple S Series"
+      "Unknown Embedded SoC"
     ],
-    "Width": 26,
-    "Length": 36,
-    "Height": 28,
-    "Weight": 110,
+    "Width": 661,
+    "Length": 94,
+    "Height": 4,
+    "Weight": 305,
     "Sensors": [
-      "Barometer",
-      "GPS",
-      "Accelerometer",
-      "Altimeter"
+      "Piezo Force",
+      "Temperature"
     ],
     "Connectivity": [
-      "Cellular"
+      "Bluetooth"
     ],
-    "Name": "Multifunction Wearable"
+    "Name": "Sleep Tracker"
   },
   "Device 2": {
+    "CPU": [
+      "Unknown Embedded SoC"
+    ],
+    "Width": 0,
+    "Length": 0,
+    "Height": 0,
+    "Weight": 0,
+    "Sensors": [
+      "Pressure Sensor"
+    ],
+    "Connectivity": [
+      "Wi-Fi"
+    ],
+    "Name": "Smart Urinary Catheter"
+  },
+  "Device 3": {
     "CPU": [
       "Unknown Embedded SoC"
     ],
@@ -46,40 +60,24 @@
       "Flow Sensor"
     ],
     "Connectivity": [
-      "Bluetooth"
+      "Wi-Fi"
     ],
     "Name": "Smart Urinary Catheter"
   },
-  "Device 3": {
-    "CPU": [
-      "Cortex M3"
-    ],
-    "Width": 67,
-    "Length": 88,
-    "Height": 17,
-    "Weight": 110,
-    "Sensors": [
-      "Glucometer"
-    ],
-    "Connectivity": [
-      "Wi-Fi"
-    ],
-    "Name": "Artificial Pancreas/Insulin Pump"
-  },
   "Device 4": {
     "CPU": [
-      "Unknown Embedded SoC"
+      "Cortex M4"
     ],
-    "Width": 75,
-    "Length": 47,
-    "Height": 17,
-    "Weight": 88,
+    "Width": 37,
+    "Length": 43,
+    "Height": 9,
+    "Weight": 171,
     "Sensors": [
-      "Glucometer"
+      "3 Axis Gyroscope"
     ],
     "Connectivity": [
       "Wi-Fi"
     ],
-    "Name": "Artificial Pancreas/Insulin Pump"
+    "Name": "Motion Tracker"
   }
 }
