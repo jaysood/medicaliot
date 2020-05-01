@@ -144,27 +144,28 @@ def flattenListForML(list):
 
     return output_list
 
-def convert(dump):
+def convert(return_nametable):
 
     nametable, cputable, sensortable, connectable = populateHashtable(iomtDataFile)
     to_flatten = conversion(generatedDataFile, nametable, cputable, sensortable, connectable)
     converted_list = np.asarray(flattenListForML(to_flatten))
 
-    # for item in list(nametable.items()):
-    #     print(item)
-    # print("\n")
-    # for item in list(cputable.items()):
-    #     print(item)
-    # print("\n")
-    # for item in list(sensortable.items()):
-    #     print(item)
-    # print("\n")
-    # for item in list(connectable.items()):
-    #     print(item)
-    # print("\n")
+    for item in list(nametable.items()):
+        print(item)
+    print("\n")
+    for item in list(cputable.items()):
+        print(item)
+    print("\n")
+    for item in list(sensortable.items()):
+        print(item)
+    print("\n")
+    for item in list(connectable.items()):
+        print(item)
+    print("\n")
 
-    if dump == True:
-        np.savetxt("ml_data.csv", converted_list, delimiter = ',', fmt = '%1d')
+    np.savetxt("ml_data.csv", converted_list, delimiter = ',', fmt = '%1d')
+
+    if return_nametable == True:
+        return nametable
 
     print("Conversion complete.")
-    return converted_list

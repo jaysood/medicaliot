@@ -54,7 +54,7 @@
 	"Device_4": {
 		"Name": "Remote Patient Monitor",
 		"Attributes": {
-			"CPU": ["IOIO-OTG Microcontroller" , "Multiple Embedded SoC"],
+			"CPU": ["IOIO-OTG Microcontroller" , "Unknown Embedded SoC"],
 			"Width": [0,0],
 			"Length": [0,0],
 			"Height": [0,0],
