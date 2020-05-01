@@ -168,5 +168,3 @@ def convert(dump):
 
     print("Conversion complete.")
     return converted_list
-
-convert(dump=True)
