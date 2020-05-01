@@ -1,6 +1,7 @@
 from pathlib import Path
 import json
 import numpy as np
+import pandas as pd
 
 GLOBAL_MAX_SENSOR = 7
 GLOBAL_MAX_CONNECT = 3
@@ -143,7 +144,7 @@ def flattenListForML(list):
 
     return output_list
 
-def convert():
+def convert(dump):
 
     nametable, cputable, sensortable, connectable = populateHashtable(iomtDataFile)
     to_flatten = conversion(generatedDataFile, nametable, cputable, sensortable, connectable)
@@ -162,7 +163,10 @@ def convert():
     #     print(item)
     # print("\n")
 
+    if dump == True:
+        np.savetxt("ml_data.csv", converted_list, delimiter = ',', fmt = '%1d')
+
     print("Conversion complete.")
     return converted_list
 
-convert()
+convert(dump=True)
