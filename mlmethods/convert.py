@@ -150,18 +150,18 @@ def convert(return_nametable):
     to_flatten = conversion(generatedDataFile, nametable, cputable, sensortable, connectable)
     converted_list = np.asarray(flattenListForML(to_flatten))
 
-    for item in list(nametable.items()):
-        print(item)
-    print("\n")
-    for item in list(cputable.items()):
-        print(item)
-    print("\n")
-    for item in list(sensortable.items()):
-        print(item)
-    print("\n")
-    for item in list(connectable.items()):
-        print(item)
-    print("\n")
+    # for item in list(nametable.items()):
+    #     print(item)
+    # print("\n")
+    # for item in list(cputable.items()):
+    #     print(item)
+    # print("\n")
+    # for item in list(sensortable.items()):
+    #     print(item)
+    # print("\n")
+    # for item in list(connectable.items()):
+    #     print(item)
+    # print("\n")
 
     np.savetxt("ml_data.csv", converted_list, delimiter = ',', fmt = '%1d')
 

@@ -1,7 +1,6 @@
 import math, random, sys, os, json
 trainingMode = False
-# TODO - ram in incrments of 256
-# also misc validation
+
 def initialise_tool():
     global trainingMode
     print("Warning this tool removes all previously generated data! Please save in a different directory if required!")
@@ -27,7 +26,6 @@ def initialise_tool():
     else:
         print("Please select a valid option")
         sys.exit()
-
 
 
 def initialise_json():
@@ -80,6 +78,7 @@ def randomValueFromDict(generator):
     else:
         print("Check IoMT.json file! Data possibly corrupt.")
         sys.exit()
+
 
 def cpuValueCorrector(cpu_list):
     #Checks if CPU list contains more than 1 CPU, deletes the end one if so
