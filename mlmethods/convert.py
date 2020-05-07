@@ -27,7 +27,7 @@ def populateHashtable(iomtdata):
     '''
     Converts string components of IoMT.json file into hashtable to be used in array
     '''
-    name_hashtable = {}
+    name_hashtable = {0:'0'}
     cpu_hashtable = {0:'0'}
     sensor_hashtable = {0:'0'}
     connect_hashtable = {0:'0'}
@@ -39,7 +39,7 @@ def populateHashtable(iomtdata):
         current_device = "Device_" + str(dev_key)
 
 #Populate Name hashtable
-        name_hashtable[dev_key] = iomt_dict[current_device]["Name"]
+        name_hashtable[dev_key + 1] = iomt_dict[current_device]["Name"]
 
 #Populate CPU hashtable
         for cpu_key in range(0, len(iomt_dict[current_device]["Attributes"]["CPU"])):
@@ -62,6 +62,7 @@ def populateHashtable(iomtdata):
                 insert_point = insert_point[-1]
                 connect_hashtable[insert_point + 1] = iomt_dict[current_device]["Attributes"]["Connectivity"][connect_key]
 
+    del name_hashtable[0]
     del cpu_hashtable[0]
     del sensor_hashtable[0]
     del connect_hashtable[0]

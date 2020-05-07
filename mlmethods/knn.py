@@ -24,7 +24,7 @@ FEATURES_TRAIN, FEATURES_TEST, CLASS_TRAIN, CLASS_TEST = model_selection.train_t
 
 #Train KNN classifier on training set + time metric
 start_time = datetime.now()
-knn_classifier =  neighbors.KNeighborsClassifier(n_neighbors = 3)
+knn_classifier =  neighbors.KNeighborsClassifier(n_neighbors = 5)
 knn_classifier.fit(FEATURES_TRAIN, CLASS_TRAIN)
 training_time = datetime.now() - start_time
 
@@ -32,7 +32,9 @@ training_time = datetime.now() - start_time
 for item in nametable.values():
     cf_labels.append(item)
 
-metric_table = ml_metrics.outputMetrics(knn_classifier, FEATURES_TRAIN, CLASS_TRAIN , FEATURES_TEST, CLASS_TEST, training_time, average_type = "micro")
-print(metric_table)
+metric_table = ml_metrics.outputMetrics(knn_classifier, FEATURES_TRAIN, CLASS_TRAIN, FEATURES_TEST,
+                                        CLASS_TEST, training_time, cf_labels, average_type = "macro")
 
-ml_metrics.generateConfusionMatrix(knn_classifier, FEATURES_TEST, CLASS_TEST, "Test", cf_labels, show = True)
+pd.options.display.float_format = '{:20,.6f}'.format
+
+print(metric_table)

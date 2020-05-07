@@ -1,6 +1,9 @@
 import math, random, sys, os, json
 trainingMode = False
 
+
+#random asstd sensor lst?
+ 
 def initialise_tool():
     global trainingMode
     print("Warning this tool removes all previously generated data! Please save in a different directory if required!")
