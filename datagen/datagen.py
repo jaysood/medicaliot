@@ -1,10 +1,22 @@
+#####################################################
+#   Synthetic Data Generator for ML algorithms      #
+#                                                   #
+#   Allows the user to specify arbitrary amount     #
+#   of data to generate.                            #
+#   Outputs a JSON file (generated.JSON) with data. #
+#                                                   #
+#   Author: Jay Rauniar Sood - 2019/2020            #
+#####################################################
+
 import math, random, sys, os, json
 trainingMode = False
 
-
-#random asstd sensor lst?
- 
 def initialise_tool():
+    '''
+    Initialises the datagen tool by deleting previously generated data
+    and sets the generation mode.
+    '''
+
     global trainingMode
     print("Warning this tool removes all previously generated data! Please save in a different directory if required!")
     decision = input("Proceed? (Y/N): ")
@@ -32,19 +44,25 @@ def initialise_tool():
 
 
 def initialise_json():
+    '''
+    Opens json file and returns dictionary of contents, along with length of dictionary.
+    '''
+
     with open('IoMT.json') as f:
         device_dict = json.load(f)
         return [device_dict, len(device_dict.keys())]
 
 
 def generate(noRecordsToGenerate, dict, noKeys):
-    # Picks a random device from the JSON data
-    # Generates pseudorandom attribues dependant on device
+    '''
+    Generates required amount of synthetic data via calls to randomValueFromDict and dumps to JSON file.
+    '''
+
     random_dict = {}
 
     # Generate random attributes:
     for i in range(noRecordsToGenerate):
-        # Picks a random device to generate attributes:
+        # Picks a random device to generate attributes from:
         sub_dict = {}
         random_index = random.randint(0,noKeys - 1)
         random_device = dict[list(dict.keys())[random_index]]
@@ -62,7 +80,10 @@ def generate(noRecordsToGenerate, dict, noKeys):
 
 
 def randomValueFromDict(generator):
-    #not complete, weird sensor behaviour, try catch needed
+    '''
+    Generates random data for numerical and categorical entries in IoMT dictionary
+    '''
+
     outlist = []
 
     if len(generator) == 1:
@@ -84,7 +105,10 @@ def randomValueFromDict(generator):
 
 
 def cpuValueCorrector(cpu_list):
-    #Checks if CPU list contains more than 1 CPU, deletes the end one if so
+    '''
+    Allows a generated device to only have one CPU.
+    '''
+
     if len(cpu_list) > 1:
         del cpu_list[len(cpu_list) - 1]
         return cpu_list

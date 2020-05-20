@@ -1,3 +1,14 @@
+#####################################################
+#   SVM classifier implementation                   #
+#   Use GLOBAL_KERNEL to change kernel.             #
+#   Options are: "poly", "rbf", "sigmoid"           #
+#                                                   #
+#   Author: Jay Rauniar Sood - 2019/2020            #
+#####################################################
+
+
+
+
 import convert, ml_metrics, matplotlib
 matplotlib.use('macosx')
 import numpy as np
@@ -5,8 +16,9 @@ import pandas as pd
 from sklearn import svm, model_selection
 from datetime import datetime
 
-cf_labels = []
+GLOBAL_KERNEL = "rbf"
 
+cf_labels = ["MT", "SI", "MW", "ST", "RPM", "AP", "SC", "MMC"]
 #Dump data to CSV for input to algorithm
 nametable = convert.convert(return_nametable = True)
 ml_dataframe = pd.read_csv('ml_data.csv', names = ["CPU", " Width", "Length", "Height",
@@ -29,9 +41,6 @@ svm_classifier.fit(FEATURES_TRAIN, CLASS_TRAIN)
 training_time = datetime.now() - start_time
 
 #OUTPUT METRICS
-for item in nametable.values():
-    cf_labels.append(item)
-
 metric_table = ml_metrics.outputMetrics(svm_classifier, FEATURES_TRAIN, CLASS_TRAIN, FEATURES_TEST,
                                         CLASS_TEST, training_time, cf_labels, average_type = "macro")
 

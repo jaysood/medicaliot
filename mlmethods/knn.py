@@ -1,3 +1,9 @@
+#####################################################
+#   KNN classifier implementation                   #
+#                                                   #
+#   Author: Jay Rauniar Sood - 2019/2020            #
+#####################################################
+
 import convert, ml_metrics, matplotlib
 matplotlib.use('macosx')
 import numpy as np
@@ -5,7 +11,7 @@ import pandas as pd
 from sklearn import neighbors, model_selection
 from datetime import datetime
 
-cf_labels = []
+cf_labels = ["MT", "SI", "MW", "ST", "RPM", "AP", "SC", "MMC"]
 
 #Dump data to CSV for input to algorithm
 nametable = convert.convert(return_nametable = True)
@@ -24,14 +30,11 @@ FEATURES_TRAIN, FEATURES_TEST, CLASS_TRAIN, CLASS_TEST = model_selection.train_t
 
 #Train KNN classifier on training set + time metric
 start_time = datetime.now()
-knn_classifier =  neighbors.KNeighborsClassifier(n_neighbors = 5)
+knn_classifier =  neighbors.KNeighborsClassifier(n_neighbors = 9)
 knn_classifier.fit(FEATURES_TRAIN, CLASS_TRAIN)
 training_time = datetime.now() - start_time
 
 #OUTPUT METRICS
-for item in nametable.values():
-    cf_labels.append(item)
-
 metric_table = ml_metrics.outputMetrics(knn_classifier, FEATURES_TRAIN, CLASS_TRAIN, FEATURES_TEST,
                                         CLASS_TEST, training_time, cf_labels, average_type = "macro")
 

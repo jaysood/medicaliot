@@ -1,15 +1,32 @@
+#####################################################
+#   JSON to NumPy array converter for classifiers   #
+#                                                   #
+#   Converts the generated.JSON file to a NumPy     #
+#   array in order for input to ML algorithms       #
+#   Outputs a CSV file (ml_data.csv) with data.     #
+#                                                   #
+#   Author: Jay Rauniar Sood - 2019/2020            #
+#####################################################
+
 from pathlib import Path
 import json
 import numpy as np
-import pandas as pd
 
+#Edit these depending on the maximum number
+#of sensprs and connectivity in IoMT.json
 GLOBAL_MAX_SENSOR = 7
 GLOBAL_MAX_CONNECT = 3
 
-generatedDataFile = Path(r'/Users/jayrsood/Documents/3rd Year/medicaliot/medicaliot/datagen/generated.json')
-iomtDataFile = Path(r'/Users/jayrsood/Documents/3rd Year/medicaliot/medicaliot/datagen/IoMT.json')
+#MODIFY ME!!! USE YOUR SPECIFIC PATH OR NOTHING WILL WORK.
+generatedDataFile = Path(r'~/./medicaliot/datagen/generated.json')
+iomtDataFile = Path(r'~/.medicaliot/datagen/IoMT.json')
 
 def formatStringList(value_list, hashtable):
+    '''
+    Returns the corresponding hashtable keys of given string
+    values as a list to be input into NumPy array.
+    '''
+
     value_key_list = []
     for string in range(0, len(value_list)):
         value_key = getKeyFromValue(value_list[string], hashtable)
@@ -18,6 +35,11 @@ def formatStringList(value_list, hashtable):
 
 
 def getKeyFromValue(value, hashtable):
+    '''
+    Returns the corresponding hashtable key for any
+    value passed to it. Throws KeyError if not found.
+    '''
+
     for key, potential_value in hashtable.items():
         if value == potential_value:
             return key
@@ -25,8 +47,9 @@ def getKeyFromValue(value, hashtable):
 
 def populateHashtable(iomtdata):
     '''
-    Converts string components of IoMT.json file into hashtable to be used in array
+    Generates the hashtable of categorical features found in IoMT.json
     '''
+
     name_hashtable = {0:'0'}
     cpu_hashtable = {0:'0'}
     sensor_hashtable = {0:'0'}
@@ -73,6 +96,7 @@ def conversion(generated, name_hashtable, cpu_hashtable, sensor_hashtable, conne
     '''
     Converts generated.json file into numpy array for input to ML algorithms
     '''
+
     to_convert = []
 
 #Opening generated file:
@@ -108,6 +132,11 @@ def conversion(generated, name_hashtable, cpu_hashtable, sensor_hashtable, conne
     return to_convert
 
 def flattenListForML(list):
+    '''
+    Sets up NumPy array to accept incoming converted data.
+    Sets length of array automatically dependant on total number of features in dataset.
+    '''
+
     output_list = []
 
 #Setup lists for incoming data, populate with 0's
@@ -146,11 +175,16 @@ def flattenListForML(list):
     return output_list
 
 def convert(return_nametable):
+    '''
+    Calls all relevant conversion functions, and outputs
+    NumPy array to CSV file
+    '''
 
     nametable, cputable, sensortable, connectable = populateHashtable(iomtDataFile)
     to_flatten = conversion(generatedDataFile, nametable, cputable, sensortable, connectable)
     converted_list = np.asarray(flattenListForML(to_flatten))
 
+    #Uncomment to print hashtables!
     # for item in list(nametable.items()):
     #     print(item)
     # print("\n")
